@@ -15,8 +15,8 @@ typedef enum{
 
 #define PAGE_SIZE 0xFF
 
-#define STACK_BOTTOM 0x1FF
-#define STACK_TOP 0x100
+#define STACK_BOTTOM 0x100
+#define STACK_TOP 0x1FF
 
 extern uint8_t accumulator;
 extern uint8_t x_register;
