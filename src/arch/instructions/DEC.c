@@ -3,6 +3,5 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeADCInstruction(Addressing_mode mode){
-    
+void executeDECInstruction(Addressing_mode mode){
 }
