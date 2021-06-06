@@ -8,6 +8,9 @@
 Instruction instruction_set[0x100];
 
 void setup_instructions(){
+    for(uint16_t i = 0; i < 0x100; i++){
+        REGISTER_INSTRUCTION(BRK, "BRK", i, IMPLIED);
+    }
 
     REGISTER_INSTRUCTION(BRK, "BRK", 0x0, IMPLIED);
     REGISTER_INSTRUCTION(BPL, "BPL", 0x1, RELATIVE);
@@ -24,5 +27,6 @@ void setup_instructions(){
     REGISTER_INSTRUCTION(BNE, "BNE", 0xD, RELATIVE);
     REGISTER_INSTRUCTION(CPX, "CPX", 0xE, IMMEDIATE);
     REGISTER_INSTRUCTION(BEQ, "BEQ", 0xF, RELATIVE);
+    REGISTER_INSTRUCTION(LDA, "LDA", 0xA9, IMMEDIATE);
 
 }

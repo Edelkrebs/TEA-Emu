@@ -18,6 +18,8 @@ typedef enum{
 #define STACK_BOTTOM 0x100
 #define STACK_TOP 0x1FF
 
+extern uint32_t cycles;
+
 extern uint8_t accumulator;
 extern uint8_t x_register;
 extern uint8_t y_register;

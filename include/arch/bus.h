@@ -16,6 +16,8 @@ typedef struct{
 extern Bus_Device* devices[];
 extern Bus_Device RAM;
 
+extern uint8_t bus_gen_cycles;
+
 void init_bus();
 uint8_t read_from_bus(uint16_t addr);
 void write_to_bus(uint16_t addr, uint8_t value);
