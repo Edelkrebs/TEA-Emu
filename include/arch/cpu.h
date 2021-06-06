@@ -19,6 +19,7 @@ typedef enum{
 #define STACK_TOP 0x1FF
 
 extern uint32_t cycles;
+extern uint8_t current_page;
 
 extern uint8_t accumulator;
 extern uint8_t x_register;

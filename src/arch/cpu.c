@@ -3,6 +3,7 @@
 #include <arch/instruction.h>
 
 uint32_t cycles;
+uint8_t current_page;
 
 uint8_t accumulator;
 uint8_t x_register;
@@ -30,9 +31,11 @@ void start_execution(uint16_t addr){
     status_register = 0;
     stack_pointer = 0xFF;
     program_counter = addr;
+    current_page = program_counter / PAGE_SIZE;
     for(;;){
         system("clear");
         printf("Accumulator: %x\nX: %x\nY: %x\nStatus: %x\nStack Pointer: %x\nProgram Counter: %x\n", accumulator, x_register, y_register, status_register, stack_pointer, program_counter);
         process_instruction();
+        current_page = program_counter / PAGE_SIZE;
     }
 }

@@ -2,8 +2,8 @@
 #include <stddef.h>
 
 #define REGISTER_INSTRUCTION(w, x, y, z) extern void execute##w##Instruction(Addressing_mode); \
-                                      Instruction w##instruction = {.name = x, .execute_instruction = &execute##w##Instruction, .opcode = y, .mode = z}; \
-                                      instruction_set[y] = w##instruction;
+                                      Instruction w##y##instruction = {.name = x, .execute_instruction = &execute##w##Instruction, .opcode = y, .mode = z}; \
+                                      instruction_set[y] = w##y##instruction;
 
 Instruction instruction_set[0x100];
 
@@ -27,6 +27,22 @@ void setup_instructions(){
     REGISTER_INSTRUCTION(BNE, "BNE", 0xD, RELATIVE);
     REGISTER_INSTRUCTION(CPX, "CPX", 0xE, IMMEDIATE);
     REGISTER_INSTRUCTION(BEQ, "BEQ", 0xF, RELATIVE);
+    REGISTER_INSTRUCTION(ORA, "ORA", 0x10, X_INDEXED);
+    REGISTER_INSTRUCTION(ORA, "ORA", 0x11, Y_INDEXED);
+    REGISTER_INSTRUCTION(AND, "AND", 0x12, X_INDEXED);
+    REGISTER_INSTRUCTION(AND, "AND", 0x13, Y_INDEXED);
+    REGISTER_INSTRUCTION(EOR, "EOR", 0x14, X_INDEXED);
+    REGISTER_INSTRUCTION(EOR, "EOR", 0x15, Y_INDEXED);
+    REGISTER_INSTRUCTION(ADC, "ADC", 0x16, X_INDEXED);
+    REGISTER_INSTRUCTION(ADC, "ADC", 0x17, Y_INDEXED);
+    REGISTER_INSTRUCTION(STA, "STA", 0x18, X_INDEXED);
+    REGISTER_INSTRUCTION(STA, "STA", 0x19, Y_INDEXED);
+    REGISTER_INSTRUCTION(LDA, "LDA", 0x1A, X_INDEXED);
+    REGISTER_INSTRUCTION(LDA, "LDA", 0x1B, Y_INDEXED);
+    REGISTER_INSTRUCTION(CMP, "CMP", 0x1C, X_INDEXED);
+    REGISTER_INSTRUCTION(CMP, "CMP", 0x1D, Y_INDEXED);
+    REGISTER_INSTRUCTION(SBC, "SBC", 0x1E, X_INDEXED);
+    REGISTER_INSTRUCTION(SBC, "SBC", 0x1F, Y_INDEXED);
     REGISTER_INSTRUCTION(LDA, "LDA", 0xA9, IMMEDIATE);
 
 }
