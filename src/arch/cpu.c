@@ -38,5 +38,6 @@ void start_execution(uint16_t addr){
         process_instruction();
         current_page = program_counter / PAGE_SIZE;
         
+        
     }
 }
