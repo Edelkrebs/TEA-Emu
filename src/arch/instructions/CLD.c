@@ -3,5 +3,5 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeCLDInstruction(Addressing_mode mode){
+void executeCLDInstruction(Addressing_mode mode, uint16_t value){
 }

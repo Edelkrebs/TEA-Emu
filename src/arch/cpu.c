@@ -18,8 +18,8 @@ void process_instruction(){
         if(instruction_set[ins].opcode == read_from_bus(program_counter)){
             bus_gen_cycles = 1;
             cycles++;
-            instruction_set[ins].execute_instruction(instruction_set[ins].mode);
-            program_counter += instruction_set[ins].mode;
+            instruction_set[ins].execute_instruction(instruction_set[ins].mode, get_instruction_value(instruction_set[ins].mode));
+            program_counter += get_instruction_size(instruction_set[ins].mode);
         }
     }
 }

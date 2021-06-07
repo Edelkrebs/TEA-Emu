@@ -22,10 +22,6 @@ uint8_t read_from_bus(uint16_t addr){
         if(devices[device] != NULL){
             if(addr >= devices[device]->start_addr && addr <= devices[device]->start_addr + devices[device]->size && devices[device] != NULL){
                 cycles += bus_gen_cycles;
-                if(addr / PAGE_SIZE != current_page && bus_gen_cycles){
-                    cycles++;
-                    current_page = addr / PAGE_SIZE; 
-                }
                 return devices[device]->redirect[addr];
             }
         }
@@ -40,11 +36,6 @@ void write_to_bus(uint16_t addr, uint8_t value){
         if(devices[device] != NULL){
             if(addr >= devices[device]->start_addr && addr <= devices[device]->start_addr + devices[device]->size){
                 devices[device]->redirect[addr] = value;
-                cycles += bus_gen_cycles;
-                if(addr / PAGE_SIZE != current_page && bus_gen_cycles){
-                    cycles++;
-                    current_page = addr / PAGE_SIZE; 
-                }
                 cycles += bus_gen_cycles;
                 return;
             }

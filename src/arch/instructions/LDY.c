@@ -3,13 +3,13 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeLDYInstruction(Addressing_mode mode){
-    switch(mode){
-        case IMMEDIATE:{
-            y_register = read_from_bus(program_counter + 1);
-            return;
-        }default:{
-            return;
-        }
+void executeLDYInstruction(Addressing_mode mode, uint16_t value){
+    y_register = value;
+
+    if(y_register == 0){
+        status_register |= Zero;
+    }
+    if(y_register >> 7){
+        status_register |= Negative;
     }
 }

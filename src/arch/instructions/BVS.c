@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeBVSInstruction(Addressing_mode mode){
+void executeBVSInstruction(Addressing_mode mode, uint16_t value){
     switch(mode){
         case RELATIVE:{
             if(!(status_register & Overflow)) return;

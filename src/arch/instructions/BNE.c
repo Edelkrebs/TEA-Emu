@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeBNEInstruction(Addressing_mode mode){
+void executeBNEInstruction(Addressing_mode mode, uint16_t value){
     switch(mode){
         case RELATIVE:{
             if(status_register & Zero) return;

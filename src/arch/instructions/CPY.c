@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeCPYInstruction(Addressing_mode mode){
+void executeCPYInstruction(Addressing_mode mode, uint16_t value){
     uint8_t compare_value;
     switch(mode){
         case IMMEDIATE:{

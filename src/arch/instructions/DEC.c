@@ -3,5 +3,5 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeDECInstruction(Addressing_mode mode){
+void executeDECInstruction(Addressing_mode mode, uint16_t value){
 }

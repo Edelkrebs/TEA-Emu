@@ -3,6 +3,6 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeADCInstruction(Addressing_mode mode){
-    
+void executeADCInstruction(Addressing_mode mode, uint16_t value){
+    accumulator += value;
 }

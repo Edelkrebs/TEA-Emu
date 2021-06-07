@@ -4,19 +4,19 @@
 #include <stdint.h>
 
 typedef enum{
-    ACCUMULATOR = 1,
-    ABSOLUTE = 3,
-    ABSOLUTE_X = 3,
-    ABSOLUTE_Y = 3,
-    IMMEDIATE = 2,
-    IMPLIED = 1,
-    INDIRECT = 3,
-    X_INDEXED = 2,
-    Y_INDEXED = 2,
-    RELATIVE = 2,
-    ZEROPAGE = 2,
-    ZEROPAGE_X = 2,
-    ZEROPAGE_Y = 2    
+    ACCUMULATOR,
+    ABSOLUTE,
+    ABSOLUTE_X,
+    ABSOLUTE_Y,
+    IMMEDIATE,
+    IMPLIED,
+    INDIRECT,
+    X_INDEXED,
+    Y_INDEXED,
+    RELATIVE,
+    ZEROPAGE,
+    ZEROPAGE_X,
+    ZEROPAGE_Y    
 } Addressing_mode;
 
 typedef enum{
@@ -175,13 +175,15 @@ typedef enum{
 
 typedef struct{
     const char* name;
-    void (*execute_instruction)(Addressing_mode);
+    void (*execute_instruction)(Addressing_mode, uint16_t);
     Addressing_mode mode;
     uint8_t opcode; 
 } Instruction;
 
 extern Instruction instruction_set[];
 
+uint8_t get_instruction_value(Addressing_mode mode);
+uint8_t get_instruction_size(Addressing_mode mode);
 void setup_instructions();
 
 #endif

@@ -1,5 +1,5 @@
 #include <arch/instruction.h>
 
-void executeJSRInstruction(Addressing_mode mode){
+void executeJSRInstruction(Addressing_mode mode, uint16_t value){
 
 }

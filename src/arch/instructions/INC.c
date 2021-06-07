@@ -3,5 +3,5 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeINCInstruction(Addressing_mode mode){
+void executeINCInstruction(Addressing_mode mode, uint16_t value){
 }

@@ -3,5 +3,5 @@
 #include <stdio.h>
 #include <arch/bus.h>
 
-void executeJMPInstruction(Addressing_mode mode){
+void executeJMPInstruction(Addressing_mode mode, uint16_t value){
 }
