@@ -37,6 +37,5 @@ void start_execution(uint16_t addr){
         printf("Accumulator: 0x%x\nX: 0x%x\nY: 0x%x\nStatus: 0x%x\nStack Pointer: 0x%x\nProgram Counter: 0x%x\n", accumulator, x_register, y_register, status_register, stack_pointer, program_counter);
         process_instruction();
         current_page = program_counter / PAGE_SIZE;
-        
     }
 }
