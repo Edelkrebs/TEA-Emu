@@ -4,4 +4,5 @@
 #include <arch/bus.h>
 
 void executeCLIInstruction(Addressing_mode mode, uint16_t value){
+    status_register &= ~(Interrupt);
 }

@@ -180,6 +180,10 @@ typedef struct{
     uint8_t opcode; 
 } Instruction;
 
+#define GET_ABSOLUTE_ADDR (read_from_bus(program_counter + 1) << 8) | read_from_bus(read_from_bus(program_counter + 1))
+#define GET_ABSOLUTE_ADDR_X (read_from_bus(program_counter + x_register + 1) << 8) | read_from_bus(read_from_bus(program_counter + x_register + 1))
+#define GET_ABSOLUTE_ADDR_Y (read_from_bus(program_counter + y_register + 1) << 8) | read_from_bus(read_from_bus(program_counter + y_register + 1))
+
 extern Instruction instruction_set[];
 
 uint8_t get_instruction_value(Addressing_mode mode);
